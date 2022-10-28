@@ -1,0 +1,88 @@
+<p>form-vehicle works!</p>
+<div class="container-sm w-25 p-3 bg-light">
+  <form [formGroup]="vehicleForm">
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect01"
+        formControlName="vehicleType"
+        (change)="fetchBrands(vehicleForm.value.vehicleType)"
+      >
+        <option [value]="type" *ngFor="let type of vehicleTypes">
+          {{ type }}
+        </option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">Marca</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect01"
+        formControlName="brand"
+        (change)="fetchModels(vehicleForm.value.brand)"
+      >
+        <option [value]="brand" *ngFor="let brand of brands">
+          {{ brand }}
+        </option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">Modelo</label>
+      <select
+        class="form-select"
+        id="inputGroupSelect01"
+        formControlName="model"
+      >
+        <option [value]="model" *ngFor="let model of models">
+          {{ model }}
+        </option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">Patente</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="ABC123 o AB123CD"
+        aria-label="tipoAuto"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div
+      class="input-group mb-3"
+      *ngIf="vehicleForm.value.vehicleType == 'CYCLE'"
+    >
+      <input
+        type="text"
+        class="form-control"
+        placeholder="CC"
+        aria-label="cc"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div *ngIf="vehicleForm.value.vehicleType == 'CAR'">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Tipo de auto"
+          aria-label="tipoAuto"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Cant puertas"
+          aria-label="cantPuertas"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+  </form>
+</div>

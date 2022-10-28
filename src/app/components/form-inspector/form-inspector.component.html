@@ -1,0 +1,70 @@
+<div class="container">
+  <form [formGroup]="inspectorForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">DNI: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="12345678"
+        formControlName="dni"
+        required
+        pattern="[1-9]{8}"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Nombre: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Pedro"
+        formControlName="name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Apellido: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Picapiedra"
+        formControlName="lastName"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email: </label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="name@example.com"
+        formControlName="email"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Telefono: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="3777-123456"
+        formControlName="phoneNumber"
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!inspectorForm.valid"
+    >
+      Guardar
+    </button>
+  </form>
+</div>
+
+<p>{{ this.inspectorForm.value.email }}</p>
+<p>{{ inspectorForm.status }}</p>

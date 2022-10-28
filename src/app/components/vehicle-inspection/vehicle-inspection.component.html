@@ -1,0 +1,26 @@
+<h3>Inspecciones</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Fecha inpesccion</th>
+      <th scope="col">Fecha Vencimiento</th>
+      <th scope="col">Tipo de Cliente</th>
+      <th scope="col">Inspector</th>
+      <th scope="col">Patente vehiculo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let inspection of inspections; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ inspection.inspectionState }}</td>
+      <td>{{ inspection.inspectionDate }}</td>
+      <td>{{ inspection.expirationDate }}</td>
+      <td>{{ inspection.costumerType }}</td>
+      <td>{{ inspection.inspectorName }}</td>
+      <td>{{ inspection.vehicleDto.licensePlate }}</td>
+    </tr>
+  </tbody>
+</table>
